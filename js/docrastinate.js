@@ -9,8 +9,8 @@ $(document).ready(function () {
   $('#projects').scrollTop(localStorage.getItem('scroll-projects'));
   $('#personal').scrollTop(localStorage.getItem('scroll-personal'));
 
-  remoteStorage.displayWidget('remotestorage-connect', 'en');
-  remoteStorage.loadModule('documents', 'rw');
+  remoteStorage.loadModule('documents', 'rw');//first load all modules
+  remoteStorage.displayWidget('remotestorage-connect', 'en');//after that, display widget
   var notes = remoteStorage.documents.getPrivateList('notes');
   notes.on('change', function (e) {
     $('#calendar').val(notes.getContent('calendar'));
